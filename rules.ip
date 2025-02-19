@@ -1,0 +1,2 @@
+sudo iptables -t nat -A OUTPUT -p tcp -d puck1.nasejevs.com --dport 8080 -m owner ! --uid-owner $(id -u proxy_user) -j REDIRECT --to-port 8081
+sudo iptables -t nat -A PREROUTING -p tcp -d puck1.nasejevs.com --dport 8080 -j REDIRECT --to-port 8081
